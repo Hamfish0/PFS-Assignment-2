@@ -1,0 +1,149 @@
+/* nu-tracker - dark industrial inventory UI */
+:root {
+  --bg: #0d1117;
+  --bg-2: #161b22;
+  --bg-3: #1f2630;
+  --line: #2a313c;
+  --fg: #d1d5db;
+  --muted: #8b949e;
+  --green: #3fb950;
+  --green-dim: #1f6f2a;
+  --amber: #d29922;
+  --amber-dim: #5c4516;
+  --red: #f85149;
+  --mono: ui-monospace, "JetBrains Mono", "Consolas", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--mono); font-size: 14px; }
+
+.view { min-height: 100vh; }
+.hidden { display: none !important; }
+
+/* LOGIN */
+#login-view, #register-view {
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at top, #16202c 0%, var(--bg) 60%);
+}
+.login-card {
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px;
+  padding: 32px 36px; min-width: 360px; box-shadow: 0 0 0 1px #00000040;
+}
+.brand { color: var(--green); font-size: 28px; margin: 0 0 4px; letter-spacing: 1px; }
+.brand-sub { color: var(--amber); }
+.brand.small { font-size: 18px; }
+.tagline { color: var(--muted); margin: 0 0 24px; font-size: 12px; }
+.hint { color: var(--muted); font-size: 11px; margin-top: 16px; }
+
+form label { display: block; margin: 12px 0; color: var(--muted); font-size: 12px; }
+input, textarea, select {
+  width: 100%; margin-top: 4px; background: var(--bg-3); border: 1px solid var(--line);
+  color: var(--fg); padding: 8px 10px; border-radius: 4px; font-family: var(--mono);
+  font-size: 13px;
+}
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--green); }
+textarea { min-height: 60px; resize: vertical; }
+
+button {
+  background: var(--green-dim); color: var(--green); border: 1px solid var(--green);
+  padding: 8px 14px; border-radius: 4px; font-family: var(--mono); font-size: 13px;
+  cursor: pointer; margin-top: 8px; margin-right: 6px;
+}
+button:hover { background: var(--green); color: #000; }
+button.primary { background: var(--amber-dim); color: var(--amber); border-color: var(--amber); }
+button.primary:hover { background: var(--amber); color: #000; }
+button.ghost { background: transparent; color: var(--muted); border-color: var(--line); }
+button.ghost:hover { color: var(--fg); border-color: var(--fg); background: transparent; }
+button.small { padding: 4px 10px; font-size: 11px; }
+
+.error { color: var(--red); font-size: 12px; margin-top: 8px; min-height: 1em; }
+.warn { color: var(--amber); font-size: 12px; }
+
+/* NAVBAR */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; background: var(--bg-2); border-bottom: 1px solid var(--line);
+}
+.nav-left { display: flex; align-items: center; gap: 20px; }
+.nav-left nav { display: flex; gap: 4px; }
+.nav-btn {
+  background: transparent; border: 1px solid transparent; color: var(--muted);
+  padding: 6px 12px; margin: 0;
+}
+.nav-btn:hover { color: var(--fg); border-color: var(--line); background: transparent; }
+.nav-btn.active { color: var(--green); border-color: var(--green-dim); background: transparent; }
+
+.nav-right { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); }
+.user-chip strong { color: var(--green); }
+.token-display {
+  display: inline-block; max-width: 220px; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; vertical-align: bottom; color: var(--amber);
+  background: var(--bg-3); padding: 2px 6px; border-radius: 3px; font-size: 11px;
+}
+
+/* TABS */
+.tab { padding: 20px; }
+.toolbar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; }
+.toolbar input { max-width: 320px; margin-top: 0; }
+.toolbar button { margin-top: 0; }
+
+/* TABLES */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th, .data-table td {
+  text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line);
+}
+.data-table th { color: var(--muted); font-weight: normal; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 1px; }
+.data-table tr:hover td { background: var(--bg-2); }
+
+.qty-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px;
+  background: var(--green-dim); color: var(--green); min-width: 32px; text-align: center;
+}
+.qty-badge.low { background: var(--amber-dim); color: var(--amber); }
+.qty-badge.zero { background: #5c1f1f; color: var(--red); }
+
+.row-action {
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  padding: 2px 8px; font-size: 11px; margin: 0 2px;
+}
+.row-action:hover { color: var(--fg); border-color: var(--fg); background: transparent; }
+.row-action.danger { color: var(--red); border-color: #5c1f1f; }
+.row-action.danger:hover { background: var(--red); color: #000; }
+
+/* LOCATIONS MAP */
+#locations-map { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; }
+.loc-card {
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; padding: 16px;
+}
+.loc-card h3 { margin: 0 0 4px; color: var(--green); font-size: 16px; }
+.loc-card .loc-meta { color: var(--muted); font-size: 11px; margin-bottom: 12px; }
+.loc-card ul { list-style: none; padding: 0; margin: 0; }
+.loc-card li { padding: 4px 0; border-top: 1px dashed var(--line); font-size: 12px; }
+
+/* MODAL */
+.modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.modal-card {
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px;
+  padding: 24px 28px; min-width: 420px; max-width: 600px; max-height: 80vh; overflow-y: auto;
+  position: relative;
+}
+.modal-card h2 { margin-top: 0; color: var(--green); }
+.modal-close {
+  position: absolute; top: 8px; right: 12px; background: transparent; border: none;
+  color: var(--muted); font-size: 22px; margin: 0; padding: 4px 8px;
+}
+.modal-close:hover { color: var(--red); background: transparent; }
+.form-actions { display: flex; gap: 8px; margin-top: 16px; }
+
+#detail-body dl { display: grid; grid-template-columns: 130px 1fr; gap: 6px 12px;
+  margin: 12px 0; }
+#detail-body dt { color: var(--muted); font-size: 12px; }
+#detail-body dd { margin: 0; color: var(--fg); font-size: 13px; }
+#detail-history { list-style: none; padding: 0; font-size: 12px; color: var(--muted); }
+#detail-history li { padding: 4px 0; border-top: 1px dashed var(--line); }

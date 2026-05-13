@@ -1,0 +1,68 @@
+2026-05-13T04:48:52.674551 GET / auth= body=
+2026-05-13T04:48:52.945257 POST /api/auth/login auth= body={"username":"admin","password":"admin123"}
+2026-05-13T04:49:06.308948 POST /api/auth/login auth= body={"username":"admin","password":"admin123"}
+2026-05-13T04:49:06.581132 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY1NDYuMzAzOTQ0fQ.vuBSTktZfxyWUxkheDWxPjVV3tCSdDE4JIQiBfExZpY body=
+2026-05-13T04:49:06.848011 GET /api/inventory/search auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY1NDYuMzAzOTQ0fQ.vuBSTktZfxyWUxkheDWxPjVV3tCSdDE4JIQiBfExZpY body=
+2026-05-13T04:49:07.124846 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY1NDYuMzAzOTQ0fQ.vuBSTktZfxyWUxkheDWxPjVV3tCSdDE4JIQiBfExZpY body=
+2026-05-13T04:49:07.407166 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY1NDYuMzAzOTQ0fQ.vuBSTktZfxyWUxkheDWxPjVV3tCSdDE4JIQiBfExZpY body=
+2026-05-13T04:49:07.689943 GET /api/audit auth= body=
+2026-05-13T04:49:07.970030 GET /api/auth/users auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY1NDYuMzAzOTQ0fQ.vuBSTktZfxyWUxkheDWxPjVV3tCSdDE4JIQiBfExZpY body=
+2026-05-13T04:49:20.264442 GET /api/inventory auth=Bearer eyJhbGciOiAibm9uZSIsICJ0eXAiOiAiSldUIn0.eyJzdWIiOiAxLCAidXNlcm5hbWUiOiAiYWRtaW4iLCAicm9sZSI6ICJhZG1pbiJ9. body=
+2026-05-13T04:51:30.808358 GET / auth= body=
+2026-05-13T04:51:30.817379 GET /static/style.css auth= body=
+2026-05-13T04:51:30.817379 GET /static/app.js auth= body=
+2026-05-13T04:51:30.922851 GET /favicon.ico auth= body=
+2026-05-13T04:53:12.128238 GET / auth= body=
+2026-05-13T04:53:12.136756 GET /static/style.css auth= body=
+2026-05-13T04:53:12.136756 GET /static/app.js auth= body=
+2026-05-13T04:53:12.220403 GET /favicon.ico auth= body=
+2026-05-13T04:53:16.676979 GET / auth= body=
+2026-05-13T04:53:16.728767 GET /static/style.css auth= body=
+2026-05-13T04:53:16.728767 GET /static/app.js auth= body=
+2026-05-13T04:53:16.749614 GET /static/style.css auth= body=
+2026-05-13T04:53:23.692594 GET / auth= body=
+2026-05-13T04:53:23.708610 GET /static/style.css auth= body=
+2026-05-13T04:53:23.709615 GET /static/app.js auth= body=
+2026-05-13T04:53:23.804302 GET /favicon.ico auth= body=
+2026-05-13T04:53:30.996899 POST /api/auth/login auth= body={"username":"admin","password":"admin123"}
+2026-05-13T04:53:31.001898 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:31.001898 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:31.029950 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:35.342830 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:37.643758 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:38.400236 GET /api/auth/users auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:46.303181 GET /api/audit auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:47.202788 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MTAuOTg4NzM0fQ.NWhy7XuWptn1Stl4Z28R1bO8FXd3wuUZsycfewQO--E body=
+2026-05-13T04:53:50.751562 POST /api/auth/login auth= body={"username":"admin","password":"admin123"}
+2026-05-13T04:53:50.755067 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:53:50.755067 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:53:50.759074 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:53:56.846770 GET /api/inventory/1 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:53:59.864406 GET /api/inventory/1 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:03.009523 PUT /api/inventory/1 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body={"name":"Dell Latitude 7420 Laptop","description":"14-inch business laptop eeae","quantity":12,"location":"Warehouse A","supplier_id":2,"rfid_tag":"RFID-0001"}
+2026-05-13T04:54:03.012531 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:05.262117 GET /api/inventory/1 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:08.695915 DELETE /api/inventory/2 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:08.700946 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:23.615142 POST /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body={"name":"gsgf","description":"gsgf","quantity":5321,"location":"Server Room","supplier_id":2,"rfid_tag":"rrr"}
+2026-05-13T04:54:23.618658 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:28.161726 GET /api/inventory/11 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:31.223544 PUT /api/inventory/11 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body={"name":"gsgf","description":"gsgf","quantity":532,"location":"Server Room","supplier_id":2,"rfid_tag":"rrr"}
+2026-05-13T04:54:31.227545 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:34.425188 GET /api/inventory/11 auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:40.093326 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:43.551470 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:49.433421 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:51.587081 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:52.128674 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:52.385335 GET /api/auth/users auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:54:54.126965 GET /api/audit auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:04.457048 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:13.780080 GET /api/inventory/search auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:15.883877 GET /api/inventory/search auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:17.939800 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:18.369347 GET /api/inventory auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:19.072336 GET /api/locations auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:19.999787 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:20.627426 GET /api/auth/users auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-13T04:55:21.198862 GET /api/audit auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=

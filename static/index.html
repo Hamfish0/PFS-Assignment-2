@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nu-tracker | Inventory</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <!-- LOGIN VIEW -->
+  <section id="login-view" class="view">
+    <div class="login-card">
+      <h1 class="brand">nu-tracker<span class="brand-sub">.inventory</span></h1>
+      <p class="tagline">RFID Inventory Control // nu-tracker-inventory-company pty</p>
+      <form id="login-form">
+        <label>Username<input type="text" id="login-username" autocomplete="username" /></label>
+        <label>Password<input type="password" id="login-password" autocomplete="current-password" /></label>
+        <button type="submit">Authenticate</button>
+        <button type="button" id="show-register" class="ghost">Register</button>
+      </form>
+      <p id="login-error" class="error"></p>
+      <p class="hint">Demo: admin/admin123 &middot; staff/staff123 &middot; viewer/viewer123</p>
+    </div>
+  </section>
+
+  <!-- REGISTER VIEW -->
+  <section id="register-view" class="view hidden">
+    <div class="login-card">
+      <h1 class="brand">register</h1>
+      <form id="register-form">
+        <label>Username<input type="text" id="reg-username" /></label>
+        <label>Password<input type="password" id="reg-password" /></label>
+        <label>Role
+          <select id="reg-role">
+            <option value="viewer">viewer</option>
+            <option value="staff">staff</option>
+            <option value="admin">admin</option>
+          </select>
+        </label>
+        <button type="submit">Create account</button>
+        <button type="button" id="show-login" class="ghost">Back to login</button>
+      </form>
+      <p id="register-error" class="error"></p>
+    </div>
+  </section>
+
+  <!-- MAIN APP -->
+  <section id="app-view" class="view hidden">
+    <header class="navbar">
+      <div class="nav-left">
+        <span class="brand small">nu-tracker</span>
+        <nav>
+          <button class="nav-btn active" data-tab="inventory">Inventory</button>
+          <button class="nav-btn" data-tab="locations">Locations</button>
+          <button class="nav-btn" data-tab="suppliers">Suppliers</button>
+          <button class="nav-btn" data-tab="users">Users</button>
+          <button class="nav-btn" data-tab="audit">Audit</button>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <span class="user-chip">
+          user: <strong id="current-user">-</strong> &nbsp;|&nbsp;
+          token: <code id="current-token" class="token-display">-</code>
+        </span>
+        <button id="logout-btn" class="ghost small">Logout</button>
+      </div>
+    </header>
+
+    <!-- INVENTORY TAB -->
+    <main id="tab-inventory" class="tab">
+      <div class="toolbar">
+        <input type="text" id="search-input" placeholder="Search items..." />
+        <button id="search-btn">Search</button>
+        <button id="refresh-btn" class="ghost">Reset</button>
+        <button id="new-item-btn" class="primary">+ Add Item</button>
+      </div>
+      <table class="data-table" id="inventory-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Description</th><th>Qty</th>
+            <th>Location</th><th>RFID</th><th>Updated</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="inventory-body"></tbody>
+      </table>
+    </main>
+
+    <!-- LOCATIONS TAB -->
+    <main id="tab-locations" class="tab hidden">
+      <div id="locations-map"></div>
+    </main>
+
+    <!-- SUPPLIERS TAB -->
+    <main id="tab-suppliers" class="tab hidden">
+      <table class="data-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></thead>
+        <tbody id="suppliers-body"></tbody>
+      </table>
+    </main>
+
+    <!-- USERS TAB -->
+    <main id="tab-users" class="tab hidden">
+      <p class="warn">This endpoint exposes plaintext passwords (intentional vulnerability V7).</p>
+      <table class="data-table">
+        <thead><tr><th>ID</th><th>Username</th><th>Password</th><th>Role</th><th>Created</th></tr></thead>
+        <tbody id="users-body"></tbody>
+      </table>
+    </main>
+
+    <!-- AUDIT TAB -->
+    <main id="tab-audit" class="tab hidden">
+      <table class="data-table">
+        <thead><tr><th>ID</th><th>Action</th><th>Item</th><th>User</th><th>Time</th><th>Details</th></tr></thead>
+        <tbody id="audit-body"></tbody>
+      </table>
+    </main>
+  </section>
+
+  <!-- ITEM DETAIL MODAL -->
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close>&times;</button>
+      <h2 id="detail-title">Item</h2>
+      <div id="detail-body"></div>
+      <h3>Audit history</h3>
+      <ul id="detail-history"></ul>
+    </div>
+  </div>
+
+  <!-- ADD/EDIT ITEM MODAL -->
+  <div id="form-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close>&times;</button>
+      <h2 id="form-title">Add Item</h2>
+      <form id="item-form">
+        <input type="hidden" id="item-id" />
+        <label>Name<input type="text" id="item-name" /></label>
+        <label>Description<textarea id="item-description"></textarea></label>
+        <label>Quantity<input type="number" id="item-quantity" value="0" /></label>
+        <label>Location
+          <select id="item-location"></select>
+        </label>
+        <label>Supplier
+          <select id="item-supplier"></select>
+        </label>
+        <label>RFID Tag<input type="text" id="item-rfid" /></label>
+        <div class="form-actions">
+          <button type="submit" class="primary">Save</button>
+          <button type="button" class="ghost" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
