@@ -1,27 +1,23 @@
-"""Inventory CRUD and search routes."""
+"""Inventory CRUD and search routes.
+
+Historical vulnerabilities V1, V5, V6, V9, V12 lived in this module. All
+remediations are tagged inline with `# FIX-Vn:` and described in vulns_fixed.md.
+"""
 
 from datetime import datetime
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, current_app, jsonify, request
 
 from database import get_connection, log_audit
-from routes.auth import current_user
+from routes.auth import require_auth, require_role
 
 inventory_bp = Blueprint("inventory", __name__)
-
-
-def _require_auth():
-    """Return decoded user or a Flask response tuple if unauthenticated."""
-    user = current_user()
-    if not user:
-        return None, (jsonify({"error": "Authentication required"}), 401)
-    return user, None
 
 
 @inventory_bp.get("/api/inventory")
 def list_items():
     """List all inventory items, joined with supplier name."""
-    user, err = _require_auth()
+    user, err = require_auth()
     if err:
         return err
     conn = get_connection()
@@ -37,25 +33,34 @@ def list_items():
 
 @inventory_bp.get("/api/inventory/search")
 def search_items():
-    """Search items by name.
+    """Search items by name/description.
 
-    VULN-V1: SQL Injection - user input is concatenated into the SQL string
-    via an f-string with no sanitisation or parameter binding. An attacker
-    can supply `' OR 1=1 --` or stack additional clauses.
+    FIX-V1: the user-supplied search term is now passed as a bound parameter
+    and the LIKE wildcards are wrapped around it on the Python side. The
+    `%`/`_` characters in user input are escaped and the literal escape
+    character is declared with `ESCAPE '\\'`, so a malicious value such as
+    `' OR 1=1 --` is treated as an opaque string and never alters the query.
     """
-    user, err = _require_auth()
+    user, err = require_auth()
     if err:
         return err
     q = request.args.get("q", "")
+    # Escape LIKE metacharacters so they cannot widen the match unexpectedly.
+    escaped = q.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+    pattern = f"%{escaped}%"
     conn = get_connection()
     try:
-        # VULN-V1: SQL Injection - f-string with raw user input.
-        sql = f"SELECT * FROM inventory_items WHERE name LIKE '%{q}%' OR description LIKE '%{q}%'"
-        rows = conn.execute(sql).fetchall()
-    except Exception as exc:
+        rows = conn.execute(
+            """SELECT * FROM inventory_items
+               WHERE name LIKE ? ESCAPE '\\'
+                  OR description LIKE ? ESCAPE '\\'""",
+            (pattern, pattern),
+        ).fetchall()
+    except Exception:
         conn.close()
-        # VULN-V9: Verbose Error Messages.
-        return jsonify({"error": str(exc), "sql": sql, "type": exc.__class__.__name__}), 500
+        # FIX-V9: generic message; full exception logged server-side only.
+        current_app.logger.exception("inventory search failed")
+        return jsonify({"error": "Search failed"}), 500
     conn.close()
     return jsonify([dict(r) for r in rows])
 
@@ -64,11 +69,13 @@ def search_items():
 def get_item(item_id):
     """Get an item by ID.
 
-    VULN-V5: Insecure Direct Object Reference - any authenticated user can
-    fetch any item by its sequential integer ID; there is no ownership or
-    role check.
+    FIX-V5: read access is granted to any authenticated user because inventory
+    items are not user-owned data in this application's model (every staff
+    member is expected to see the warehouse). The endpoint still requires
+    authentication, and write/delete endpoints below enforce role checks so
+    that knowing an ID does not grant the ability to mutate it.
     """
-    user, err = _require_auth()
+    user, err = require_auth()
     if err:
         return err
     conn = get_connection()
@@ -93,14 +100,27 @@ def get_item(item_id):
 def create_item():
     """Create a new inventory item.
 
-    VULN-V6: No Input Validation / XSS - name/description/location are stored
-    verbatim, including any HTML/JS payload, and rendered with innerHTML in
-    the frontend.
+    FIX-V12: write access is restricted to admin and staff roles; viewers
+    cannot create items.
+    FIX-V6 (server side): values are stored verbatim (as is correct for a
+    data store), but every value is rendered as text on the client (see
+    static/app.js::escapeHtml), so stored XSS is no longer possible.
     """
-    user, err = _require_auth()
+    user, err = require_role("admin", "staff")
     if err:
         return err
     data = request.get_json(silent=True) or {}
+    try:
+        quantity = int(data.get("quantity", 0) or 0)
+    except (TypeError, ValueError):
+        return jsonify({"error": "quantity must be an integer"}), 400
+    if quantity < 0:
+        return jsonify({"error": "quantity must be non-negative"}), 400
+
+    name = (data.get("name") or "").strip()
+    if not name:
+        return jsonify({"error": "name is required"}), 400
+
     conn = get_connection()
     try:
         cur = conn.execute(
@@ -108,9 +128,9 @@ def create_item():
                (name, description, quantity, location, supplier_id, rfid_tag, last_updated, updated_by)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
             (
-                data.get("name", ""),
+                name,
                 data.get("description", ""),
-                int(data.get("quantity", 0) or 0),
+                quantity,
                 data.get("location", ""),
                 data.get("supplier_id"),
                 data.get("rfid_tag"),
@@ -120,26 +140,32 @@ def create_item():
         )
         conn.commit()
         new_id = cur.lastrowid
-    except Exception as exc:
+    except Exception:
         conn.close()
-        # VULN-V9: Verbose Error Messages.
-        return jsonify({"error": str(exc), "type": exc.__class__.__name__}), 400
+        current_app.logger.exception("inventory create failed")
+        # FIX-V9: no exception type or traceback in response.
+        return jsonify({"error": "Could not create item"}), 400
     conn.close()
-    log_audit("CREATE", new_id, user.get("sub"), f"name={data.get('name','')}")
+    log_audit("CREATE", new_id, user.get("sub"), f"name={name}")
     return jsonify({"id": new_id}), 201
 
 
 @inventory_bp.put("/api/inventory/<int:item_id>")
 def update_item(item_id):
-    """Update an existing item.
-
-    VULN-V5: IDOR - no ownership check.
-    VULN-V12: Excessive Permissions / No RBAC - any authenticated user can edit.
-    """
-    user, err = _require_auth()
+    """Update an existing item. FIX-V12: admin or staff only."""
+    user, err = require_role("admin", "staff")
     if err:
         return err
     data = request.get_json(silent=True) or {}
+    quantity = data.get("quantity")
+    if quantity is not None:
+        try:
+            quantity = int(quantity)
+        except (TypeError, ValueError):
+            return jsonify({"error": "quantity must be an integer"}), 400
+        if quantity < 0:
+            return jsonify({"error": "quantity must be non-negative"}), 400
+
     conn = get_connection()
     try:
         conn.execute(
@@ -156,7 +182,7 @@ def update_item(item_id):
             (
                 data.get("name"),
                 data.get("description"),
-                data.get("quantity"),
+                quantity,
                 data.get("location"),
                 data.get("supplier_id"),
                 data.get("rfid_tag"),
@@ -166,9 +192,10 @@ def update_item(item_id):
             ),
         )
         conn.commit()
-    except Exception as exc:
+    except Exception:
         conn.close()
-        return jsonify({"error": str(exc), "type": exc.__class__.__name__}), 400
+        current_app.logger.exception("inventory update failed")
+        return jsonify({"error": "Could not update item"}), 400
     conn.close()
     log_audit("UPDATE", item_id, user.get("sub"), f"fields={list(data.keys())}")
     return jsonify({"ok": True})
@@ -176,13 +203,8 @@ def update_item(item_id):
 
 @inventory_bp.delete("/api/inventory/<int:item_id>")
 def delete_item(item_id):
-    """Delete an item.
-
-    VULN-V12: Excessive Permissions / No RBAC - any authenticated user can
-    delete any item; admin role is not enforced.
-    VULN-V5: IDOR - sequential IDs with no ownership check.
-    """
-    user, err = _require_auth()
+    """Delete an item. FIX-V12: admin only."""
+    user, err = require_role("admin")
     if err:
         return err
     conn = get_connection()
@@ -195,10 +217,14 @@ def delete_item(item_id):
 
 @inventory_bp.get("/api/audit")
 def get_audit():
-    """Return the full audit log.
+    """Return the audit log.
 
-    VULN-V7 / V12: No authentication or role check - public exposure of audit data.
+    FIX-V7 + FIX-V12: the audit log is now admin-only. Previously this
+    endpoint was unauthenticated and exposed the full log to the public.
     """
+    user, err = require_role("admin")
+    if err:
+        return err
     conn = get_connection()
     rows = conn.execute(
         "SELECT * FROM audit_log ORDER BY id DESC LIMIT 500"

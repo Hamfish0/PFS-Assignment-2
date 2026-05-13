@@ -1,15 +1,18 @@
 """
 Database initialisation and helpers for nu-tracker-inventory-company pty.
 
-NOTE: This module is part of a deliberately insecure application built for
-academic security analysis. See SECURITY_ANALYSIS.md for the full list of
-intentional vulnerabilities. Vulnerabilities are tagged inline with
-`# VULN-[ID]: [name]`.
+Originally this module shipped intentional vulnerabilities (see SECURITY_ANALYSIS.md).
+All fixes are tagged inline with `# FIX-Vn:` and described in vulns_fixed.md.
 """
 
 import os
+import secrets
 import sqlite3
+import sys
 from datetime import datetime
+
+# FIX-V3: use Werkzeug's PBKDF2-SHA256 salted hashing (ships with Flask).
+from werkzeug.security import generate_password_hash
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "data", "inventory.db")
 
@@ -18,9 +21,22 @@ def get_connection():
     """Return a new sqlite3 connection with row factory configured."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
-    # Allow foreign keys for cleaner relationship semantics.
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
+
+
+def _resolve_seed_password(env_var):
+    """FIX-V2: return password from env var or generate a random one and print it.
+
+    Hardcoded credentials are removed entirely. On first init, if the operator
+    has not provided a password via environment variable, we generate a fresh
+    random one and emit it to stderr so it can be captured once. There are no
+    static defaults baked into the source.
+    """
+    value = os.environ.get(env_var)
+    if value:
+        return value, False
+    return secrets.token_urlsafe(18), True
 
 
 def init_db():
@@ -34,7 +50,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            -- VULN-V3: No Password Hashing - passwords are stored in plaintext.
+            -- FIX-V3: this column now stores a PBKDF2-SHA256 salted hash, never plaintext.
             password TEXT NOT NULL,
             role TEXT NOT NULL DEFAULT 'viewer',
             created_at TEXT NOT NULL
@@ -93,17 +109,34 @@ def _seed(cur):
     """Insert demo users, suppliers, locations, items, and an initial audit row."""
     now = datetime.utcnow().isoformat()
 
-    # VULN-V2: Hardcoded Credentials - admin / admin123 seeded into DB.
-    # VULN-V3: No Password Hashing - plaintext passwords stored.
-    users = [
-        ("admin", "admin123", "admin"),
-        ("staff", "staff123", "staff"),
-        ("viewer", "viewer123", "viewer"),
+    # FIX-V2 + FIX-V3: no hardcoded passwords. Resolve each from env or randomise,
+    # then store only the salted hash.
+    seed_specs = [
+        ("admin", "INVTRACKER_ADMIN_PASSWORD", "admin"),
+        ("staff", "INVTRACKER_STAFF_PASSWORD", "staff"),
+        ("viewer", "INVTRACKER_VIEWER_PASSWORD", "viewer"),
     ]
-    for u, p, r in users:
+    generated = []
+    for username, env_var, role in seed_specs:
+        password, was_random = _resolve_seed_password(env_var)
         cur.execute(
             "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, ?, ?)",
-            (u, p, r, now),
+            (username, generate_password_hash(password), role, now),
+        )
+        if was_random:
+            generated.append((username, password))
+
+    if generated:
+        print(
+            "\n[invtracker] Seeded demo accounts with random passwords "
+            "(set INVTRACKER_{ADMIN,STAFF,VIEWER}_PASSWORD to control these):",
+            file=sys.stderr,
+        )
+        for username, password in generated:
+            print(f"  {username}: {password}", file=sys.stderr)
+        print(
+            "[invtracker] These passwords are shown ONCE and not stored in plaintext.\n",
+            file=sys.stderr,
         )
 
     suppliers = [

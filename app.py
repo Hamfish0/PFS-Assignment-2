@@ -1,15 +1,13 @@
 """
 nu-tracker-inventory-company pty - Flask entrypoint.
 
-VULN-V11: Insecure HTTP (no TLS) - the development server runs on plain HTTP.
-All traffic, including login credentials and JWTs, is transmitted in plaintext
-and is trivially observable on any shared network.
-
-Run with:  python app.py
+All historical vulnerabilities documented in SECURITY_ANALYSIS.md have been
+remediated. See vulns_fixed.md for the full writeup. Inline fixes are tagged
+`# FIX-Vn:`.
 """
 
+import logging
 import os
-import traceback
 
 from flask import Flask, jsonify, send_from_directory
 
@@ -25,37 +23,34 @@ app = Flask(__name__, static_folder=STATIC_DIR, static_url_path="/static")
 
 
 @app.after_request
-def add_cors_and_log(response):
-    """Attach permissive CORS headers and log each request.
+def after_request(response):
+    """FIX-V10: CORS wildcard headers removed.
 
-    VULN-V10: CORS Misconfiguration - Access-Control-Allow-Origin: * with all
-    methods and headers permitted from any origin.
-    VULN-V7: Sensitive Data Exposure - logs include Authorization headers.
+    The SPA is served from the same origin as the API, so no
+    Access-Control-Allow-* headers are required. Removing the
+    `Access-Control-Allow-Origin: *` header prevents a malicious third-party
+    site from invoking these endpoints with the user's bearer token (if one
+    were ever placed in a place a cross-origin request could read).
+
+    We keep the request log invocation so audit telemetry still works, but
+    log_request() itself now redacts bearer tokens and password fields
+    (FIX-V7).
     """
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
-    response.headers["Access-Control-Allow-Headers"] = "*"
     log_request()
     return response
 
 
 @app.errorhandler(Exception)
 def handle_exception(exc):
-    """Return full tracebacks to the client.
+    """FIX-V9: generic error response. Tracebacks are logged server-side only.
 
-    VULN-V9: Verbose Error Messages - returns the full Python traceback so
-    that internal paths, library versions, and SQL errors are exposed.
+    The previous handler echoed `str(exc)`, the exception class name and the
+    full Python traceback back to the HTTP client, leaking file paths, library
+    versions, and (for DB errors) the failing SQL. We now log the traceback
+    via `app.logger.exception` and return a non-descriptive payload.
     """
-    return (
-        jsonify(
-            {
-                "error": str(exc),
-                "type": exc.__class__.__name__,
-                "traceback": traceback.format_exc(),
-            }
-        ),
-        500,
-    )
+    app.logger.exception("unhandled exception in request: %s", exc)
+    return jsonify({"error": "Internal server error"}), 500
 
 
 app.register_blueprint(auth_bp)
@@ -81,6 +76,17 @@ def static_proxy(path):
 
 if __name__ == "__main__":
     init_db()
-    # VULN-V11: Insecure HTTP - no TLS context, plain HTTP on 127.0.0.1:5000.
-    # Debug=True also leaks the Werkzeug debugger PIN and tracebacks (V9).
-    app.run(host="127.0.0.1", port=5000, debug=True)
+
+    # FIX-V11: debug mode is OFF by default. The Werkzeug interactive debugger
+    # is a remote code execution vector if exposed, and `debug=True` also
+    # leaks tracebacks to clients regardless of the V9 fix above.
+    debug = os.environ.get("INVTRACKER_DEBUG", "").lower() in ("1", "true", "yes")
+
+    # FIX-V11: encourage TLS for any non-loopback deployment. Setting
+    # INVTRACKER_SSL=adhoc starts Flask with a self-signed certificate for
+    # local HTTPS testing. Production deployments should terminate TLS in a
+    # reverse proxy (nginx/Caddy/etc.) with a real certificate.
+    ssl_context = "adhoc" if os.environ.get("INVTRACKER_SSL") == "adhoc" else None
+
+    logging.basicConfig(level=logging.INFO)
+    app.run(host="127.0.0.1", port=5000, debug=debug, ssl_context=ssl_context)
