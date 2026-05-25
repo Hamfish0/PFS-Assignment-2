@@ -1,11 +1,4 @@
-/*
- * nu-tracker frontend logic.
- *
- * Historical vulnerabilities V6 (stored XSS via innerHTML) and V7 (rendering
- * the raw JWT into the DOM, displaying plaintext passwords in the users
- * table) have been remediated. Fixes are tagged inline as `// FIX-Vn:` and
- * described in vulns_fixed.md.
- */
+/* nu-tracker frontend logic. */
 
 const API = "";
 const state = {
@@ -19,9 +12,6 @@ const state = {
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-// FIX-V6: HTML-escape every string interpolated into a template before it is
-// assigned via innerHTML. Numeric fields are coerced through String() first so
-// the function tolerates them; null/undefined become an empty string.
 function escapeHtml(value) {
   if (value === null || value === undefined) return "";
   return String(value)
@@ -31,7 +21,6 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
-// Short alias used in templates below for readability.
 const h = escapeHtml;
 
 async function api(path, opts = {}) {
@@ -92,9 +81,6 @@ async function register(ev) {
   ev.preventDefault();
   $("#register-error").textContent = "";
   try {
-    // FIX-V12: role is no longer sent from the client. The server forces
-    // every newly registered account to role=viewer regardless of what the
-    // client claims.
     const data = await api("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({
@@ -122,13 +108,7 @@ function logout() {
 
 async function enterApp() {
   setView("app-view");
-  // FIX-V6: use textContent for user-controlled fields so the username
-  // cannot inject markup.
   $("#current-user").textContent = state.user ? `${state.user.username} (${state.user.role})` : "-";
-  // FIX-V7: the raw JWT is no longer rendered into the DOM. Anyone looking
-  // over a shoulder, screenshotting the page, or scraping the page via a
-  // separate XSS vector could previously read the session token.
-  $("#current-token").textContent = "***";
   try {
     [state.suppliers, state.locations] = await Promise.all([
       api("/api/suppliers"),
@@ -146,10 +126,6 @@ async function loadInventory() {
 
 function renderInventory(items) {
   const body = $("#inventory-body");
-  // FIX-V6: every stored field that originated from user input is wrapped in
-  // h()/escapeHtml() before being interpolated into the innerHTML template,
-  // so a payload like `<img src=x onerror=alert(1)>` in a name renders as
-  // literal text instead of executing.
   body.innerHTML = items.map((i) => `
     <tr>
       <td>${h(i.id)}</td>
@@ -189,8 +165,6 @@ async function deleteItem(id) {
 
 async function openDetail(id) {
   const { item, history } = await api("/api/inventory/" + id);
-  // FIX-V6: title is set via textContent so an item named `<script>...` cannot
-  // execute. All <dd> values below are HTML-escaped before interpolation.
   $("#detail-title").textContent = item.name || "";
   $("#detail-body").innerHTML = `
     <dl>
@@ -211,7 +185,6 @@ async function openDetail(id) {
 
 function openItemForm(id) {
   const supSelect = $("#item-supplier");
-  // FIX-V6: supplier names come from the DB and must be escaped in <option> labels.
   supSelect.innerHTML = '<option value="">(none)</option>' +
     state.suppliers.map((s) => `<option value="${h(s.id)}">${h(s.name)}</option>`).join("");
   const locSelect = $("#item-location");
@@ -261,7 +234,6 @@ async function submitItem(ev) {
 async function loadLocations() {
   const locs = await api("/api/locations");
   state.locations = locs;
-  // FIX-V6: all location/item fields originating from user input are escaped.
   $("#locations-map").innerHTML = locs.map((l) => `
     <div class="loc-card">
       <h3>${h(l.name)}</h3>
@@ -279,7 +251,6 @@ async function loadLocations() {
 async function loadSuppliers() {
   const sups = await api("/api/suppliers");
   state.suppliers = sups;
-  // FIX-V6: supplier fields are user input and are escaped.
   $("#suppliers-body").innerHTML = sups.map((s) => `
     <tr>
       <td>${h(s.id)}</td><td>${h(s.name)}</td><td>${h(s.contact_email || "")}</td>
@@ -290,20 +261,16 @@ async function loadSuppliers() {
 
 // ---------- users ----------
 async function loadUsers() {
-  // FIX-V7: the server no longer returns the password hash field at all, and
-  // this view no longer renders one even if older payloads still carry it.
-  // FIX-V6: username/role are escaped.
   let users;
   try {
     users = await api("/api/auth/users");
   } catch (e) {
-    $("#users-body").innerHTML = `<tr><td colspan="5">${h(e.message || "Forbidden")}</td></tr>`;
+    $("#users-body").innerHTML = `<tr><td colspan="4">${h(e.message || "Forbidden")}</td></tr>`;
     return;
   }
   $("#users-body").innerHTML = users.map((u) => `
     <tr>
       <td>${h(u.id)}</td><td>${h(u.username)}</td>
-      <td><code>***</code></td>
       <td>${h(u.role)}</td>
       <td>${h((u.created_at || "").slice(0,19).replace("T"," "))}</td>
     </tr>
@@ -312,8 +279,6 @@ async function loadUsers() {
 
 // ---------- audit ----------
 async function loadAudit() {
-  // FIX-V12: audit access is now admin-only on the server; non-admin viewers
-  // will see an authorization error here instead of the full log.
   let rows;
   try {
     rows = await api("/api/audit");

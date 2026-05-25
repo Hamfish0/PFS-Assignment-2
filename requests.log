@@ -87,3 +87,99 @@
 2026-05-25T08:02:58.441426 GET /api/locations auth=Bearer <redacted> body=
 2026-05-25T08:02:58.451423 GET /api/inventory auth=Bearer <redacted> body=
 2026-05-25T08:02:58.451423 GET /static/style.css auth= body=
+2026-05-25T08:03:56.268408 GET / auth= body=
+2026-05-25T08:03:56.284465 GET /static/style.css auth= body=
+2026-05-25T08:03:56.285466 GET /static/app.js auth= body=
+2026-05-25T08:03:56.432485 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:03:56.432485 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:03:56.456486 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:03:56.457486 GET /favicon.ico auth= body=
+2026-05-25T08:04:08.323933 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:04:08.328933 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:04:08.328933 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:04:08.331932 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:04:32.766166 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:04:33.673571 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:04:34.192908 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:04:34.631992 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:04:35.127779 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:04:35.977557 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:04:36.377961 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:04:37.053807 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:04:44.575127 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"","supplier_id":null,"rfid_tag":""}
+2026-05-25T08:04:48.186229 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:48.772202 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:48.955205 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:49.123219 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:49.279224 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:50.660715 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:51.012306 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:51.176263 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:51.352364 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:51.534918 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:51.895267 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":-5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:56.073892 POST /api/inventory auth=Bearer <redacted> body={"name":"EE","description":"E","quantity":5,"location":"Server Room","supplier_id":2,"rfid_tag":"EE"}
+2026-05-25T08:04:56.076893 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:05:09.600702 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:05:12.295765 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:05:13.045746 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:05:15.619771 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:05:25.251175 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:05:26.922994 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:06:04.941786 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:06:39.392170 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:06:40.300521 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:06:41.761552 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:06:50.780777 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-25T08:07:02.314027 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-25T08:07:09.099120 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-25T08:07:09.960607 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:07:14.290226 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:07:15.201100 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:07:15.900950 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:07:18.591394 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:07:19.736456 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:07:19.993347 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:07:23.567473 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:07:28.158901 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:07:29.008861 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:07:39.903359 GET / auth= body=
+2026-05-25T08:07:39.916361 GET /static/style.css auth= body=
+2026-05-25T08:07:39.916361 GET /static/app.js auth= body=
+2026-05-25T08:07:40.068382 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:07:40.068382 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:07:40.071381 GET /favicon.ico auth= body=
+2026-05-25T08:07:40.074381 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:07:41.741808 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:07:42.121812 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:07:42.559813 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:07:43.296829 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:07:45.203756 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:07:46.107466 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:07:56.787174 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:07:59.603233 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:08:00.089333 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:08:00.520430 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:08:01.413267 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:08:14.878111 GET /api/inventory/9 auth=Bearer <redacted> body=
+2026-05-25T08:08:17.618553 GET /api/inventory/6 auth=Bearer <redacted> body=
+2026-05-25T08:08:22.337860 PUT /api/inventory/6 auth=Bearer <redacted> body={"name":"HP LaserJet Pro Toner","description":"Black toner cartridge","quantity":13,"location":"Warehouse A","supplier_id":1,"rfid_tag":"RFID-0006"}
+2026-05-25T08:08:22.340861 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:08:23.746309 GET /api/inventory/6 auth=Bearer <redacted> body=
+2026-05-25T08:08:37.544904 GET /api/inventory/1 auth=Bearer <redacted> body=
+2026-05-25T08:08:41.508049 GET /api/inventory/1 auth=Bearer <redacted> body=
+2026-05-25T08:08:45.355862 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:08:45.819141 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:08:46.256151 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:08:46.592356 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:08:47.376639 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:08:50.940759 GET / auth= body=
+2026-05-25T08:08:50.953758 GET /static/style.css auth= body=
+2026-05-25T08:08:50.954758 GET /static/app.js auth= body=
+2026-05-25T08:08:51.107272 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:08:51.107272 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:08:51.110360 GET /favicon.ico auth= body=
+2026-05-25T08:08:51.111360 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:08:52.544396 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:08:52.962278 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:08:53.476327 GET /api/auth/users auth=Bearer <redacted> body=
