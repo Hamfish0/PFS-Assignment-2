@@ -183,3 +183,12 @@
 2026-05-25T08:08:52.544396 GET /api/locations auth=Bearer <redacted> body=
 2026-05-25T08:08:52.962278 GET /api/suppliers auth=Bearer <redacted> body=
 2026-05-25T08:08:53.476327 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:10:00.186738 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:10:00.605198 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:10:00.977702 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:10:01.852998 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:10:02.337793 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:10:02.663111 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:10:04.266713 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:10:04.608779 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:10:04.971492 GET /api/audit auth=Bearer <redacted> body=
