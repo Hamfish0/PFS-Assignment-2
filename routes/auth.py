@@ -222,16 +222,18 @@ def login():
 
 @auth_bp.post("/api/auth/register")
 def register():
-    """Register a new user. New accounts are always created with role=viewer.
+    """Create a new user account. Requires admin authentication."""
+    _, err = require_role("admin")
+    if err:
+        return err
 
-    FIX-V12: the previous handler honoured a client-supplied `role`, allowing
-    anonymous self-promotion to admin. Role escalation now requires an
-    authenticated admin to perform it through a separate mechanism.
-    """
     data = request.get_json(silent=True) or {}
     username = (data.get("username") or "").strip()
     password = data.get("password") or ""
+    role = data.get("role", "viewer")
 
+    if role not in ("admin", "staff", "viewer"):
+        return jsonify({"error": "role must be admin, staff, or viewer"}), 400
     if not username or not password:
         return jsonify({"error": "username and password required"}), 400
     if len(password) < 8:
@@ -241,34 +243,21 @@ def register():
     try:
         conn.execute(
             "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, ?, ?)",
-            (
-                username,
-                # FIX-V3: hash the password before storing.
-                generate_password_hash(password),
-                "viewer",
-                datetime.utcnow().isoformat(),
-            ),
+            (username, generate_password_hash(password), role, datetime.utcnow().isoformat()),
         )
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
-        # FIX-V9: generic error; specific cause stays server-side.
         return jsonify({"error": "Username already taken"}), 409
     except Exception:
         conn.close()
-        return jsonify({"error": "Could not register user"}), 400
+        return jsonify({"error": "Could not create user"}), 400
 
     row = conn.execute(
-        "SELECT * FROM users WHERE username = ?", (username,)
+        "SELECT id, username, role, created_at FROM users WHERE username = ?", (username,)
     ).fetchone()
     conn.close()
-    token = issue_token(row)
-    return jsonify(
-        {
-            "token": token,
-            "user": {"id": row["id"], "username": row["username"], "role": row["role"]},
-        }
-    )
+    return jsonify({"user": dict(row)}), 201
 
 
 @auth_bp.get("/api/auth/users")

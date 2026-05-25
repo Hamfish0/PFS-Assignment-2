@@ -22,7 +22,7 @@ html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
 .hidden { display: none !important; }
 
 /* LOGIN */
-#login-view, #register-view {
+#login-view {
   display: flex; align-items: center; justify-content: center;
   background: radial-gradient(ellipse at top, #16202c 0%, var(--bg) 60%);
 }

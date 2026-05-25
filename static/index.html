@@ -16,30 +16,8 @@
         <label>Username<input type="text" id="login-username" autocomplete="username" /></label>
         <label>Password<input type="password" id="login-password" autocomplete="current-password" /></label>
         <button type="submit">Authenticate</button>
-        <button type="button" id="show-register" class="ghost">Register</button>
       </form>
       <p id="login-error" class="error"></p>
-    </div>
-  </section>
-
-  <!-- REGISTER VIEW -->
-  <section id="register-view" class="view hidden">
-    <div class="login-card">
-      <h1 class="brand">register</h1>
-      <form id="register-form">
-        <label>Username<input type="text" id="reg-username" /></label>
-        <label>Password<input type="password" id="reg-password" /></label>
-        <label>Role
-          <select id="reg-role">
-            <option value="viewer">viewer</option>
-            <option value="staff">staff</option>
-            <option value="admin">admin</option>
-          </select>
-        </label>
-        <button type="submit">Create account</button>
-        <button type="button" id="show-login" class="ghost">Back to login</button>
-      </form>
-      <p id="register-error" class="error"></p>
     </div>
   </section>
 
@@ -98,6 +76,9 @@
 
     <!-- USERS TAB -->
     <main id="tab-users" class="tab hidden">
+      <div class="toolbar">
+        <button id="new-user-btn" class="primary">+ Create Account</button>
+      </div>
       <table class="data-table">
         <thead><tr><th>ID</th><th>Username</th><th>Role</th><th>Created</th></tr></thead>
         <tbody id="users-body"></tbody>
@@ -143,6 +124,30 @@
         <label>RFID Tag<input type="text" id="item-rfid" /></label>
         <div class="form-actions">
           <button type="submit" class="primary">Save</button>
+          <button type="button" class="ghost" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CREATE ACCOUNT MODAL -->
+  <div id="user-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close>&times;</button>
+      <h2>Create Account</h2>
+      <form id="user-form">
+        <label>Username<input type="text" id="new-username" autocomplete="off" /></label>
+        <label>Password<input type="password" id="new-password" autocomplete="new-password" /></label>
+        <label>Role
+          <select id="new-role">
+            <option value="viewer">viewer</option>
+            <option value="staff">staff</option>
+            <option value="admin">admin</option>
+          </select>
+        </label>
+        <p id="user-form-error" class="error"></p>
+        <div class="form-actions">
+          <button type="submit" class="primary">Create</button>
           <button type="button" class="ghost" data-close>Cancel</button>
         </div>
       </form>

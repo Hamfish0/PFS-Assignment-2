@@ -34,7 +34,7 @@ async function api(path, opts = {}) {
 }
 
 function setView(viewId) {
-  ["login-view", "register-view", "app-view"].forEach((id) => $("#" + id).classList.add("hidden"));
+  ["login-view", "app-view"].forEach((id) => $("#" + id).classList.add("hidden"));
   $("#" + viewId).classList.remove("hidden");
 }
 
@@ -74,27 +74,6 @@ async function login(ev) {
     enterApp();
   } catch (e) {
     $("#login-error").textContent = e.message || "Login failed";
-  }
-}
-
-async function register(ev) {
-  ev.preventDefault();
-  $("#register-error").textContent = "";
-  try {
-    const data = await api("/api/auth/register", {
-      method: "POST",
-      body: JSON.stringify({
-        username: $("#reg-username").value,
-        password: $("#reg-password").value,
-      }),
-    });
-    state.token = data.token;
-    state.user = data.user;
-    localStorage.setItem("nutracker_token", data.token);
-    localStorage.setItem("nutracker_user", JSON.stringify(data.user));
-    enterApp();
-  } catch (e) {
-    $("#register-error").textContent = e.message || "Registration failed";
   }
 }
 
@@ -261,6 +240,9 @@ async function loadSuppliers() {
 
 // ---------- users ----------
 async function loadUsers() {
+  const isAdmin = state.user && state.user.role === "admin";
+  $("#new-user-btn").classList.toggle("hidden", !isAdmin);
+
   let users;
   try {
     users = await api("/api/auth/users");
@@ -275,6 +257,31 @@ async function loadUsers() {
       <td>${h((u.created_at || "").slice(0,19).replace("T"," "))}</td>
     </tr>
   `).join("");
+}
+
+function openCreateAccount() {
+  $("#user-form").reset();
+  $("#user-form-error").textContent = "";
+  $("#user-modal").classList.remove("hidden");
+}
+
+async function submitCreateAccount(ev) {
+  ev.preventDefault();
+  $("#user-form-error").textContent = "";
+  try {
+    await api("/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify({
+        username: $("#new-username").value,
+        password: $("#new-password").value,
+        role: $("#new-role").value,
+      }),
+    });
+    $("#user-modal").classList.add("hidden");
+    loadUsers();
+  } catch (e) {
+    $("#user-form-error").textContent = e.message || "Could not create account";
+  }
 }
 
 // ---------- audit ----------
@@ -299,10 +306,9 @@ async function loadAudit() {
 // ---------- wiring ----------
 document.addEventListener("DOMContentLoaded", () => {
   $("#login-form").addEventListener("submit", login);
-  $("#register-form").addEventListener("submit", register);
-  $("#show-register").addEventListener("click", () => setView("register-view"));
-  $("#show-login").addEventListener("click", () => setView("login-view"));
   $("#logout-btn").addEventListener("click", logout);
+  $("#new-user-btn").addEventListener("click", openCreateAccount);
+  $("#user-form").addEventListener("submit", submitCreateAccount);
 
   $$(".nav-btn").forEach((b) =>
     b.addEventListener("click", () => showTab(b.dataset.tab)));

@@ -192,3 +192,89 @@
 2026-05-25T08:10:04.266713 GET /api/suppliers auth=Bearer <redacted> body=
 2026-05-25T08:10:04.608779 GET /api/auth/users auth=Bearer <redacted> body=
 2026-05-25T08:10:04.971492 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:17:46.695161 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:17:47.488850 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:17:48.076000 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:17:48.430447 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:17:48.766650 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:17:59.332817 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:17:59.337821 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:17:59.337821 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:17:59.342326 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:18:01.552680 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:18:01.827731 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:18:02.158985 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:18:03.628723 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:18:04.689350 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:18:05.222026 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:18:06.060777 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:18:06.691370 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:18:19.336308 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:18:23.476960 GET /static/style.css auth= body=
+2026-05-25T08:18:23.482959 GET /.well-known/appspecific/com.chrome.devtools.json auth= body=
+2026-05-25T08:18:26.925452 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:18:27.460725 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:18:29.413768 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:18:30.678805 GET /api/auth/login auth= body=
+2026-05-25T08:18:30.686799 GET /static/style.css auth= body=
+2026-05-25T08:18:30.687798 GET /static/app.js auth= body=
+2026-05-25T08:18:30.845313 GET /favicon.ico auth= body=
+2026-05-25T08:18:46.926203 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:18:52.746623 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:18:52.752628 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:18:52.752628 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:18:52.760139 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:19:25.103695 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:26.637238 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:32.081072 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:38.591391 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:42.006276 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:42.495844 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:46.661735 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:19:56.489103 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:20:01.035164 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:20:03.154868 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:20:12.292420 POST /api/auth/register auth= body={"username":"NIG","password":"***"}
+2026-05-25T08:20:17.325935 POST /api/auth/register auth= body={"username":"NIG","password":"***"}
+2026-05-25T08:20:17.331940 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:20:17.332940 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:20:17.339942 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:20:28.912168 POST /api/auth/register auth= body={"username":"NIG","password":"***"}
+2026-05-25T08:20:30.971247 POST /api/auth/register auth= body={"username":"NIGG","password":"***"}
+2026-05-25T08:20:30.976271 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:20:30.980251 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:20:30.985253 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:20:32.527083 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:20:33.236341 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:20:34.472655 GET /api/audit auth=Bearer <redacted> body=
+2026-05-25T08:20:35.046871 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:20:35.402884 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:20:35.893897 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:20:36.523333 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:22:41.255494 GET / auth= body=
+2026-05-25T08:22:41.276493 GET /static/style.css auth= body=
+2026-05-25T08:22:41.277496 GET /static/app.js auth= body=
+2026-05-25T08:22:41.298499 GET /.well-known/appspecific/com.chrome.devtools.json auth= body=
+2026-05-25T08:22:41.473393 GET /favicon.ico auth= body=
+2026-05-25T08:22:47.772801 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:23:35.086059 GET / auth= body=
+2026-05-25T08:23:35.103060 GET /static/style.css auth= body=
+2026-05-25T08:23:35.103060 GET /static/app.js auth= body=
+2026-05-25T08:23:35.107057 GET /.well-known/appspecific/com.chrome.devtools.json auth= body=
+2026-05-25T08:23:35.263097 GET /favicon.ico auth= body=
+2026-05-25T08:23:44.894613 GET / auth= body=
+2026-05-25T08:23:44.918614 GET /.well-known/appspecific/com.chrome.devtools.json auth= body=
+2026-05-25T08:23:44.919614 GET /static/style.css auth= body=
+2026-05-25T08:23:44.919614 GET /static/app.js auth= body=
+2026-05-25T08:23:45.072638 GET /favicon.ico auth= body=
+2026-05-25T08:23:47.716290 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:23:47.722291 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:23:47.722291 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:23:47.726291 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:23:49.510991 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:23:58.649904 POST /api/auth/register auth=Bearer <redacted> body={"username":"YOLO","password":"***","role":"admin"}
+2026-05-25T08:23:58.655905 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:24:06.427499 POST /api/auth/login auth= body={"username":"YOLO","password":"***"}
+2026-05-25T08:24:06.431500 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:24:06.432501 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:24:06.435499 GET /api/inventory auth=Bearer <redacted> body=
