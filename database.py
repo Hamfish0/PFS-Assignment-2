@@ -8,13 +8,13 @@ All fixes are tagged inline with `# FIX-Vn:` and described in vulns_fixed.md.
 import os
 import secrets
 import sqlite3
-import sys
 from datetime import datetime
 
 # FIX-V3: use Werkzeug's PBKDF2-SHA256 salted hashing (ships with Flask).
 from werkzeug.security import generate_password_hash
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "data", "inventory.db")
+_CREDS_PATH = os.path.join(os.path.dirname(__file__), "data", "credentials.txt")
 
 
 def get_connection():
@@ -37,6 +37,18 @@ def _resolve_seed_password(env_var):
     if value:
         return value, False
     return secrets.token_urlsafe(18), True
+
+
+def _print_credentials():
+    """Print account passwords on every startup if the credentials file exists."""
+    if not os.path.exists(_CREDS_PATH):
+        return
+    print("\n[invtracker] Account passwords:")
+    with open(_CREDS_PATH, encoding="utf-8") as f:
+        for line in f:
+            username, _, password = line.strip().partition(":")
+            print(f"  {username}: {password}")
+    print()
 
 
 def init_db():
@@ -103,6 +115,7 @@ def init_db():
         conn.commit()
 
     conn.close()
+    _print_credentials()
 
 
 def _seed(cur):
@@ -127,17 +140,9 @@ def _seed(cur):
             generated.append((username, password))
 
     if generated:
-        print(
-            "\n[invtracker] Seeded demo accounts with random passwords "
-            "(set INVTRACKER_{ADMIN,STAFF,VIEWER}_PASSWORD to control these):",
-            file=sys.stderr,
-        )
-        for username, password in generated:
-            print(f"  {username}: {password}", file=sys.stderr)
-        print(
-            "[invtracker] These passwords are shown ONCE and not stored in plaintext.\n",
-            file=sys.stderr,
-        )
+        with open(_CREDS_PATH, "w", encoding="utf-8") as f:
+            for username, password in generated:
+                f.write(f"{username}:{password}\n")
 
     suppliers = [
         ("Acme Hardware Co.", "sales@acme.example", "+61 2 5550 0100", "1 Acme Way, Sydney"),

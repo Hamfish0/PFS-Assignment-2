@@ -66,3 +66,24 @@
 2026-05-13T04:55:19.999787 GET /api/suppliers auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
 2026-05-13T04:55:20.627426 GET /api/auth/users auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
 2026-05-13T04:55:21.198862 GET /api/audit auth=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NzkyMTY4MzAuNzQ0MjY1fQ.z0qq6JQwQiDdzScYoQdWI3X9dtwqf2_qhm_4ry2Wqxw body=
+2026-05-25T07:57:46.480428 GET / auth= body=
+2026-05-25T07:57:46.491947 GET /static/style.css auth= body=
+2026-05-25T07:57:46.491947 GET /static/app.js auth= body=
+2026-05-25T07:57:46.511946 GET /static/style.css auth= body=
+2026-05-25T07:57:54.265709 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T07:58:02.937779 POST /api/auth/login auth= body={"username":"staff","password":"***"}
+2026-05-25T08:01:20.481163 GET / auth= body=
+2026-05-25T08:01:20.488163 GET /static/style.css auth= body=
+2026-05-25T08:01:20.488163 GET /static/app.js auth= body=
+2026-05-25T08:01:20.510162 GET /static/style.css auth= body=
+2026-05-25T08:01:28.272595 POST /api/auth/login auth= body={"username":"admin","password":"***"}
+2026-05-25T08:01:28.276597 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:01:28.276597 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:01:28.281596 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:02:58.422425 GET / auth= body=
+2026-05-25T08:02:58.429425 GET /static/style.css auth= body=
+2026-05-25T08:02:58.430424 GET /static/app.js auth= body=
+2026-05-25T08:02:58.441426 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:02:58.441426 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:02:58.451423 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:02:58.451423 GET /static/style.css auth= body=
