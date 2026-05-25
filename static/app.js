@@ -247,7 +247,7 @@ async function loadUsers() {
   try {
     users = await api("/api/auth/users");
   } catch (e) {
-    $("#users-body").innerHTML = `<tr><td colspan="4">${h(e.message || "Forbidden")}</td></tr>`;
+    $("#users-body").innerHTML = `<tr><td colspan="5">${h(e.message || "Forbidden")}</td></tr>`;
     return;
   }
   $("#users-body").innerHTML = users.map((u) => `
@@ -255,8 +255,22 @@ async function loadUsers() {
       <td>${h(u.id)}</td><td>${h(u.username)}</td>
       <td>${h(u.role)}</td>
       <td>${h((u.created_at || "").slice(0,19).replace("T"," "))}</td>
+      <td>${isAdmin ? `<button class="row-action danger" data-delete-user="${h(u.id)}">delete</button>` : ""}</td>
     </tr>
   `).join("");
+
+  $("#users-body").querySelectorAll("[data-delete-user]").forEach((b) =>
+    b.addEventListener("click", () => deleteUser(b.dataset.deleteUser)));
+}
+
+async function deleteUser(id) {
+  if (!confirm("Delete user #" + id + "?")) return;
+  try {
+    await api("/api/auth/users/" + id, { method: "DELETE" });
+    loadUsers();
+  } catch (e) {
+    alert(e.message || "Could not delete user");
+  }
 }
 
 function openCreateAccount() {

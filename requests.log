@@ -278,3 +278,35 @@
 2026-05-25T08:24:06.431500 GET /api/locations auth=Bearer <redacted> body=
 2026-05-25T08:24:06.432501 GET /api/suppliers auth=Bearer <redacted> body=
 2026-05-25T08:24:06.435499 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:24:48.481150 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:24:48.803156 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:25:35.910126 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:25:36.369331 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:25:39.646217 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:25:40.004222 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:25:51.304445 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:25:51.665454 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:25:59.950790 GET / auth= body=
+2026-05-25T08:25:59.965302 GET /static/style.css auth= body=
+2026-05-25T08:25:59.967301 GET /static/app.js auth= body=
+2026-05-25T08:26:00.135812 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:26:00.136812 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:26:00.137812 GET /favicon.ico auth= body=
+2026-05-25T08:26:00.139813 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:26:00.832643 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:26:06.295152 DELETE /api/auth/users/4 auth=Bearer <redacted> body=
+2026-05-25T08:26:09.669204 DELETE /api/auth/users/4 auth=Bearer <redacted> body=
+2026-05-25T08:26:48.971173 POST /api/auth/login auth= body={"username":"admin","password":"***"C:\\Users\\hamis\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\flask\\app.py\", line 880, in full_dispatch_request     rv = self.dispatch_request()          ^^^^^^^^^^^^^^^^^^^^^^^   File \"C:\\Users\\hamis\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-package
+2026-05-25T08:26:53.041242 POST /api/auth/login auth= body={"username":"YOLO","password":"***"}
+2026-05-25T08:26:53.046242 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:26:53.049242 GET /api/locations auth=Bearer <redacted> body=
+2026-05-25T08:26:53.052241 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-25T08:26:55.456780 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:26:57.779915 DELETE /api/auth/users/5 auth=Bearer <redacted> body=
+2026-05-25T08:26:57.783738 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:27:05.951748 DELETE /api/auth/users/4 auth=Bearer <redacted> body=
+2026-05-25T08:27:05.955748 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:27:10.676619 DELETE /api/auth/users/6 auth=Bearer <redacted> body=
+2026-05-25T08:27:16.249209 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-25T08:27:17.550189 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-25T08:27:20.366278 DELETE /api/auth/users/6 auth=Bearer <redacted> body=

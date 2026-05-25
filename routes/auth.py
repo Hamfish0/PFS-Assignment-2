@@ -272,3 +272,24 @@ def list_users():
     ).fetchall()
     conn.close()
     return jsonify([dict(r) for r in rows])
+
+
+@auth_bp.delete("/api/auth/users/<int:user_id>")
+def delete_user(user_id):
+    """Delete a user account. Requires admin authentication."""
+    admin, err = require_role("admin")
+    if err:
+        return err
+
+    if admin["sub"] == user_id:
+        return jsonify({"error": "Cannot delete your own account"}), 400
+
+    conn = get_connection()
+    result = conn.execute("DELETE FROM users WHERE id = ?", (user_id,))
+    conn.commit()
+    conn.close()
+
+    if result.rowcount == 0:
+        return jsonify({"error": "User not found"}), 404
+
+    return "", 204
