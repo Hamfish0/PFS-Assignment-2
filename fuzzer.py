@@ -14,7 +14,7 @@ import sys
 
 import requests
 
-BASE = "http://localhost:5000"
+BASE = "https://localhost:5000"
 TIMEOUT = 5
 
 # ── colours ───────────────────────────────────────────────────────────────────
@@ -92,6 +92,8 @@ def record(level, method, path, code, desc="", note=""):
 # ── HTTP ──────────────────────────────────────────────────────────────────────
 _s = requests.Session()
 _s.max_redirects = 0
+_s.verify = False  # self-signed adhoc cert
+requests.packages.urllib3.disable_warnings()  # suppress InsecureRequestWarning
 
 
 def _url(path):

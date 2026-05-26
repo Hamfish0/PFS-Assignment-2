@@ -546,3 +546,231 @@
 2026-05-26T01:34:53.117453 GET /api/auth/login auth=Bearer <redacted> body={}
 2026-05-26T01:34:55.153558 DELETE /api/auth/users auth=Bearer <redacted> body={}
 2026-05-26T01:34:57.192591 PATCH /api/inventory/1 auth=Bearer <redacted> body={}
+2026-05-26T01:42:27.936843 POST /api/auth/login auth= body={"username": "admin", "password": "***"}
+2026-05-26T01:42:30.065390 POST /api/auth/login auth= body={"username": "staff", "password": "***"}
+2026-05-26T01:42:32.187961 POST /api/auth/login auth= body={"username": "viewer", "password": "***"}
+2026-05-26T01:42:34.331136 POST /api/auth/login auth= body={"username": "admin", "password": "***"}
+2026-05-26T01:42:36.407567 POST /api/auth/login auth= body={"username": "", "password": "***"}
+2026-05-26T01:42:38.468300 POST /api/auth/login auth= body={"username": "", "password": "***"}
+2026-05-26T01:42:40.541592 POST /api/auth/login auth= body={"username": "nobody", "password": "***"}
+2026-05-26T01:42:42.580800 POST /api/auth/login auth= body={"username": "' OR '1'='1", "password": "***"}
+2026-05-26T01:42:44.647984 POST /api/auth/login auth= body={"username": "' OR 1=1 --", "password": "***"}
+2026-05-26T01:42:46.713249 POST /api/auth/login auth= body={"username": "'; DROP TABLE users; --", "password": "***"}
+2026-05-26T01:42:48.763440 POST /api/auth/login auth= body={"username": "' UNION SELECT 1,2,3 --", "password": "***"}
+2026-05-26T01:42:50.799459 POST /api/auth/login auth= body={"username": "1; SELECT * FROM users --", "password": "***"}
+2026-05-26T01:42:52.838023 POST /api/auth/login auth= body={"username": "admin'--", "password": "***"}
+2026-05-26T01:42:54.879618 POST /api/auth/login auth= body={"username": "\" OR \"1\"=\"1", "password": "***"}
+2026-05-26T01:42:56.917571 POST /api/auth/login auth= body={"username": "') OR ('1'='1", "password": "***"}
+2026-05-26T01:42:58.978481 POST /api/auth/login auth= body=
+2026-05-26T01:43:01.030579 POST /api/auth/login auth= body=not json
+2026-05-26T01:43:03.090434 POST /api/auth/login auth= body=[]
+2026-05-26T01:43:05.130747 POST /api/auth/login auth= body=0
+2026-05-26T01:43:07.169173 POST /api/auth/login auth= body="string"
+2026-05-26T01:43:09.198069 POST /api/auth/login auth= body=null
+2026-05-26T01:43:11.246513 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:13.305363 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:15.343474 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:17.388001 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:19.442052 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:21.494280 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:23.548139 POST /api/auth/login auth= body={"username": "_ratelimit_", "password": "***"}
+2026-05-26T01:43:25.586734 GET /api/inventory auth= body={}
+2026-05-26T01:43:27.625692 GET /api/locations auth= body={}
+2026-05-26T01:43:29.654255 GET /api/suppliers auth= body={}
+2026-05-26T01:43:31.710348 GET /api/auth/users auth= body={}
+2026-05-26T01:43:33.759884 GET /api/audit auth= body={}
+2026-05-26T01:43:35.812818 POST /api/inventory auth= body={}
+2026-05-26T01:43:37.869434 DELETE /api/inventory/1 auth= body={}
+2026-05-26T01:43:39.935901 GET /api/inventory auth= body=
+2026-05-26T01:43:41.990765 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:44.021988 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:46.092416 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:48.146648 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:50.192695 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:52.227718 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:54.282346 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:56.324963 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:43:58.366870 GET /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:44:00.416114 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:02.470007 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:04.507959 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:06.562010 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:08.608316 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:10.648417 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:12.669294 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:14.715155 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:16.768243 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:18.804731 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:20.843399 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:22.890746 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:24.935502 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:26.987458 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:29.031832 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:31.066924 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:33.106572 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:35.147951 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:37.177339 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:39.222289 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:41.258470 GET /api/inventory/search auth=Bearer <redacted> body=
+2026-05-26T01:44:43.299749 GET /api/inventory/0 auth=Bearer <redacted> body=
+2026-05-26T01:44:45.396691 GET /api/inventory/-1 auth=Bearer <redacted> body=
+2026-05-26T01:44:47.457521 GET /api/inventory/999999 auth=Bearer <redacted> body=
+2026-05-26T01:44:49.509697 GET /api/inventory/2147483648 auth=Bearer <redacted> body=
+2026-05-26T01:44:51.551744 POST /api/inventory auth=Bearer <redacted> body={"name": "x", "quantity": 1}
+2026-05-26T01:44:53.605843 POST /api/inventory auth=Bearer <redacted> body={"name": "' OR '1'='1", "quantity": 1}
+2026-05-26T01:44:55.677684 POST /api/inventory auth=Bearer <redacted> body={"name": "' OR 1=1 --", "quantity": 1}
+2026-05-26T01:44:57.734649 POST /api/inventory auth=Bearer <redacted> body={"name": "'; DROP TABLE users; --", "quantity": 1}
+2026-05-26T01:44:59.805575 POST /api/inventory auth=Bearer <redacted> body={"name": "' UNION SELECT 1,2,3 --", "quantity": 1}
+2026-05-26T01:45:01.887878 POST /api/inventory auth=Bearer <redacted> body={"name": "1; SELECT * FROM users --", "quantity": 1}
+2026-05-26T01:45:03.945127 POST /api/inventory auth=Bearer <redacted> body={"name": "admin'--", "quantity": 1}
+2026-05-26T01:45:06.003581 POST /api/inventory auth=Bearer <redacted> body={"name": "\" OR \"1\"=\"1", "quantity": 1}
+2026-05-26T01:45:08.067684 POST /api/inventory auth=Bearer <redacted> body={"name": "') OR ('1'='1", "quantity": 1}
+2026-05-26T01:45:10.133986 POST /api/inventory auth=Bearer <redacted> body={"name": "<script>alert(1)</script>", "quantity": 1}
+2026-05-26T01:45:12.184101 POST /api/inventory auth=Bearer <redacted> body={"name": "<img src=x onerror=alert(1)>", "quantity": 1}
+2026-05-26T01:45:14.248390 POST /api/inventory auth=Bearer <redacted> body={"name": "javascript:alert(1)", "quantity": 1}
+2026-05-26T01:45:16.309983 POST /api/inventory auth=Bearer <redacted> body={"name": "<svg onload=alert(1)>", "quantity": 1}
+2026-05-26T01:45:18.354526 POST /api/inventory auth=Bearer <redacted> body={"name": "{{7*7}}", "quantity": 1}
+2026-05-26T01:45:20.408945 POST /api/inventory auth=Bearer <redacted> body={"name": "${7*7}", "quantity": 1}
+2026-05-26T01:45:22.467612 POST /api/inventory auth=Bearer <redacted> body={"name": "#{7*7}", "quantity": 1}
+2026-05-26T01:45:24.523672 POST /api/inventory auth=Bearer <redacted> body={"name": "<%= 7*7 %>", "quantity": 1}
+2026-05-26T01:45:26.581149 POST /api/inventory auth=Bearer <redacted> body={"name": "", "quantity": 1}
+2026-05-26T01:45:28.622736 POST /api/inventory auth=Bearer <redacted> body={"name": " ", "quantity": 1}
+2026-05-26T01:45:30.674595 POST /api/inventory auth=Bearer <redacted> body={"name": "\t\n\r", "quantity": 1}
+2026-05-26T01:45:32.742814 POST /api/inventory auth=Bearer <redacted> body={"name": "\u0000", "quantity": 1}
+2026-05-26T01:45:34.811389 POST /api/inventory auth=Bearer <redacted> body={"name": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000", "quantity": 1}
+2026-05-26T01:45:36.853561 POST /api/inventory auth=Bearer <redacted> body={"name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "quantity": 1}
+2026-05-26T01:45:38.905016 POST /api/inventory auth=Bearer <redacted> body={"name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+2026-05-26T01:45:40.956434 POST /api/inventory auth=Bearer <redacted> body={"name": "../../../etc/passwd", "quantity": 1}
+2026-05-26T01:45:43.029153 POST /api/inventory auth=Bearer <redacted> body={"name": "..\\..\\..\\windows\\system32", "quantity": 1}
+2026-05-26T01:45:45.085993 POST /api/inventory auth=Bearer <redacted> body={"name": "null", "quantity": 1}
+2026-05-26T01:45:47.144142 POST /api/inventory auth=Bearer <redacted> body={"name": "undefined", "quantity": 1}
+2026-05-26T01:45:49.193068 POST /api/inventory auth=Bearer <redacted> body={"name": "true", "quantity": 1}
+2026-05-26T01:45:51.279869 POST /api/inventory auth=Bearer <redacted> body={"name": "false", "quantity": 1}
+2026-05-26T01:45:53.340604 DELETE /api/inventory/45 auth=Bearer <redacted> body=
+2026-05-26T01:45:55.402421 DELETE /api/inventory/46 auth=Bearer <redacted> body=
+2026-05-26T01:45:57.458023 DELETE /api/inventory/47 auth=Bearer <redacted> body=
+2026-05-26T01:45:59.518220 DELETE /api/inventory/48 auth=Bearer <redacted> body=
+2026-05-26T01:46:01.555477 DELETE /api/inventory/49 auth=Bearer <redacted> body=
+2026-05-26T01:46:03.613467 DELETE /api/inventory/50 auth=Bearer <redacted> body=
+2026-05-26T01:46:05.665106 DELETE /api/inventory/51 auth=Bearer <redacted> body=
+2026-05-26T01:46:07.733543 DELETE /api/inventory/52 auth=Bearer <redacted> body=
+2026-05-26T01:46:09.777724 DELETE /api/inventory/53 auth=Bearer <redacted> body=
+2026-05-26T01:46:11.835693 DELETE /api/inventory/54 auth=Bearer <redacted> body=
+2026-05-26T01:46:13.918611 DELETE /api/inventory/55 auth=Bearer <redacted> body=
+2026-05-26T01:46:15.962357 DELETE /api/inventory/56 auth=Bearer <redacted> body=
+2026-05-26T01:46:18.030545 DELETE /api/inventory/57 auth=Bearer <redacted> body=
+2026-05-26T01:46:20.102050 DELETE /api/inventory/58 auth=Bearer <redacted> body=
+2026-05-26T01:46:22.173672 DELETE /api/inventory/59 auth=Bearer <redacted> body=
+2026-05-26T01:46:24.227737 DELETE /api/inventory/60 auth=Bearer <redacted> body=
+2026-05-26T01:46:26.286691 DELETE /api/inventory/61 auth=Bearer <redacted> body=
+2026-05-26T01:46:28.339258 DELETE /api/inventory/62 auth=Bearer <redacted> body=
+2026-05-26T01:46:30.399786 DELETE /api/inventory/63 auth=Bearer <redacted> body=
+2026-05-26T01:46:32.453522 DELETE /api/inventory/64 auth=Bearer <redacted> body=
+2026-05-26T01:46:34.511305 DELETE /api/inventory/65 auth=Bearer <redacted> body=
+2026-05-26T01:46:36.567551 DELETE /api/inventory/66 auth=Bearer <redacted> body=
+2026-05-26T01:46:38.621554 DELETE /api/inventory/67 auth=Bearer <redacted> body=
+2026-05-26T01:46:40.693787 DELETE /api/inventory/68 auth=Bearer <redacted> body=
+2026-05-26T01:46:42.765611 DELETE /api/inventory/69 auth=Bearer <redacted> body=
+2026-05-26T01:46:44.809112 DELETE /api/inventory/70 auth=Bearer <redacted> body=
+2026-05-26T01:46:46.836366 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": -1}
+2026-05-26T01:46:48.880842 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": -999999}
+2026-05-26T01:46:50.937245 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": 2147483648}
+2026-05-26T01:46:52.969687 DELETE /api/inventory/71 auth=Bearer <redacted> body=
+2026-05-26T01:46:55.032751 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": 9223372036854775808}
+2026-05-26T01:46:57.083101 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": "abc"}
+2026-05-26T01:46:59.137882 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": ""}
+2026-05-26T01:47:01.193927 DELETE /api/inventory/72 auth=Bearer <redacted> body=
+2026-05-26T01:47:03.246966 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": null}
+2026-05-26T01:47:05.301425 DELETE /api/inventory/73 auth=Bearer <redacted> body=
+2026-05-26T01:47:07.360362 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": []}
+2026-05-26T01:47:09.406880 DELETE /api/inventory/74 auth=Bearer <redacted> body=
+2026-05-26T01:47:11.466225 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": {}}
+2026-05-26T01:47:13.520906 DELETE /api/inventory/75 auth=Bearer <redacted> body=
+2026-05-26T01:47:15.590820 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": 1.5}
+2026-05-26T01:47:17.630803 DELETE /api/inventory/76 auth=Bearer <redacted> body=
+2026-05-26T01:47:19.674091 POST /api/inventory auth=Bearer <redacted> body={"name": "fuzz_qty", "quantity": "1; DROP TABLE items"}
+2026-05-26T01:47:21.730399 POST /api/inventory auth=Bearer <redacted> body=
+2026-05-26T01:47:23.773002 POST /api/inventory auth=Bearer <redacted> body=not json
+2026-05-26T01:47:25.799088 POST /api/inventory auth=Bearer <redacted> body=[]
+2026-05-26T01:47:27.869886 POST /api/inventory auth=Bearer <redacted> body=0
+2026-05-26T01:47:29.914271 POST /api/inventory auth=Bearer <redacted> body="string"
+2026-05-26T01:47:31.953868 POST /api/inventory auth=Bearer <redacted> body=null
+2026-05-26T01:47:34.002397 POST /api/inventory auth=Bearer <redacted> body={"name": "_fuzz_scratch_", "quantity": 0}
+2026-05-26T01:47:36.070243 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "' OR '1'='1"}
+2026-05-26T01:47:38.114315 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "' OR 1=1 --"}
+2026-05-26T01:47:40.187975 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "'; DROP TABLE users; --"}
+2026-05-26T01:47:42.229661 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "' UNION SELECT 1,2,3 --"}
+2026-05-26T01:47:44.297230 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "1; SELECT * FROM users --"}
+2026-05-26T01:47:46.363799 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "admin'--"}
+2026-05-26T01:47:48.416211 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "\" OR \"1\"=\"1"}
+2026-05-26T01:47:50.483625 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "') OR ('1'='1"}
+2026-05-26T01:47:52.551330 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "<script>alert(1)</script>"}
+2026-05-26T01:47:54.588651 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "<img src=x onerror=alert(1)>"}
+2026-05-26T01:47:56.656454 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "javascript:alert(1)"}
+2026-05-26T01:47:58.738313 PUT /api/inventory/77 auth=Bearer <redacted> body={"name": "<svg onload=alert(1)>"}
+2026-05-26T01:48:00.805728 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": -1}
+2026-05-26T01:48:02.857944 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": -999999}
+2026-05-26T01:48:04.919857 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": 2147483648}
+2026-05-26T01:48:06.980037 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": 9223372036854775808}
+2026-05-26T01:48:09.027444 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": "abc"}
+2026-05-26T01:48:11.094272 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": ""}
+2026-05-26T01:48:13.152561 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": null}
+2026-05-26T01:48:15.170551 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": []}
+2026-05-26T01:48:17.215442 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": {}}
+2026-05-26T01:48:19.281527 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": 1.5}
+2026-05-26T01:48:21.339349 PUT /api/inventory/77 auth=Bearer <redacted> body={"quantity": "1; DROP TABLE items"}
+2026-05-26T01:48:23.408765 DELETE /api/inventory/77 auth=Bearer <redacted> body=
+2026-05-26T01:48:25.472722 DELETE /api/inventory/1 auth=Bearer <redacted> body=
+2026-05-26T01:48:27.522449 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-26T01:48:29.572994 POST /api/auth/register auth= body={"username": "attacker", "password": "***"}
+2026-05-26T01:48:31.608630 POST /api/auth/register auth=Bearer <redacted> body={"username": "attacker", "password": "***"}
+2026-05-26T01:48:33.654843 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": "superadmin"}
+2026-05-26T01:48:35.702056 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": "root"}
+2026-05-26T01:48:37.734485 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": ""}
+2026-05-26T01:48:39.771216 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": null}
+2026-05-26T01:48:41.823791 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": 1}
+2026-05-26T01:48:43.858416 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": []}
+2026-05-26T01:48:45.897464 POST /api/auth/register auth=Bearer <redacted> body={"username": "_roletest_", "password": "***", "role": {}}
+2026-05-26T01:48:48.035885 POST /api/auth/register auth=Bearer <redacted> body={"username": "' OR '1'='1", "password": "***", "role": "viewer"}
+2026-05-26T01:48:50.097523 DELETE /api/auth/users/19 auth=Bearer <redacted> body=
+2026-05-26T01:48:52.226205 POST /api/auth/register auth=Bearer <redacted> body={"username": "' OR 1=1 --", "password": "***", "role": "viewer"}
+2026-05-26T01:48:54.287862 DELETE /api/auth/users/20 auth=Bearer <redacted> body=
+2026-05-26T01:48:56.424452 POST /api/auth/register auth=Bearer <redacted> body={"username": "'; DROP TABLE users; --", "password": "***", "role": "viewer"}
+2026-05-26T01:48:58.477470 DELETE /api/auth/users/21 auth=Bearer <redacted> body=
+2026-05-26T01:49:00.617861 POST /api/auth/register auth=Bearer <redacted> body={"username": "' UNION SELECT 1,2,3 --", "password": "***", "role": "viewer"}
+2026-05-26T01:49:02.663412 DELETE /api/auth/users/22 auth=Bearer <redacted> body=
+2026-05-26T01:49:04.801887 POST /api/auth/register auth=Bearer <redacted> body={"username": "1; SELECT * FROM users --", "password": "***", "role": "viewer"}
+2026-05-26T01:49:06.858569 DELETE /api/auth/users/23 auth=Bearer <redacted> body=
+2026-05-26T01:49:08.992159 POST /api/auth/register auth=Bearer <redacted> body={"username": "admin'--", "password": "***", "role": "viewer"}
+2026-05-26T01:49:11.036565 DELETE /api/auth/users/24 auth=Bearer <redacted> body=
+2026-05-26T01:49:13.174111 POST /api/auth/register auth=Bearer <redacted> body={"username": "\" OR \"1\"=\"1", "password": "***", "role": "viewer"}
+2026-05-26T01:49:15.219753 DELETE /api/auth/users/25 auth=Bearer <redacted> body=
+2026-05-26T01:49:17.360126 POST /api/auth/register auth=Bearer <redacted> body={"username": "') OR ('1'='1", "password": "***", "role": "viewer"}
+2026-05-26T01:49:19.408121 DELETE /api/auth/users/26 auth=Bearer <redacted> body=
+2026-05-26T01:49:21.450890 POST /api/auth/register auth=Bearer <redacted> body={"username": "", "password": "***", "role": "viewer"}
+2026-05-26T01:49:23.520641 POST /api/auth/register auth=Bearer <redacted> body={"username": " ", "password": "***", "role": "viewer"}
+2026-05-26T01:49:25.567730 POST /api/auth/register auth=Bearer <redacted> body={"username": "\t\n\r", "password": "***", "role": "viewer"}
+2026-05-26T01:49:27.721442 POST /api/auth/register auth=Bearer <redacted> body={"username": "\u0000", "password": "***", "role": "viewer"}
+2026-05-26T01:49:29.769414 DELETE /api/auth/users/27 auth=Bearer <redacted> body=
+2026-05-26T01:49:31.901364 POST /api/auth/register auth=Bearer <redacted> body={"username": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000", "password": "***", "role": "viewer"}
+2026-05-26T01:49:33.958828 DELETE /api/auth/users/28 auth=Bearer <redacted> body=
+2026-05-26T01:49:36.093858 POST /api/auth/register auth=Bearer <redacted> body={"username": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "password": "***", "role": "viewer"}
+2026-05-26T01:49:38.160167 DELETE /api/auth/users/29 auth=Bearer <redacted> body=
+2026-05-26T01:49:40.222961 GET /api/auth/users auth=Bearer <redacted> body=
+2026-05-26T01:49:42.266988 DELETE /api/auth/users/1 auth=Bearer <redacted> body=
+2026-05-26T01:49:44.304959 DELETE /api/auth/users/999 auth=Bearer <redacted> body=
+2026-05-26T01:49:46.360975 DELETE /api/auth/users/0 auth=Bearer <redacted> body=
+2026-05-26T01:49:48.408138 DELETE /api/auth/users/-1 auth=Bearer <redacted> body=
+2026-05-26T01:49:50.462933 DELETE /api/auth/users/999999 auth=Bearer <redacted> body=
+2026-05-26T01:49:52.505214 DELETE /api/auth/users/2147483648 auth=Bearer <redacted> body=
+2026-05-26T01:49:54.556296 GET /api/audit auth=Bearer <redacted> body=
+2026-05-26T01:49:56.604950 GET /api/locations auth=Bearer <redacted> body=
+2026-05-26T01:49:58.653355 GET /api/suppliers auth=Bearer <redacted> body=
+2026-05-26T01:50:00.701408 DELETE /api/inventory auth=Bearer <redacted> body={}
+2026-05-26T01:50:02.743537 PUT /api/inventory auth=Bearer <redacted> body={}
+2026-05-26T01:50:04.806153 GET /api/auth/login auth=Bearer <redacted> body={}
+2026-05-26T01:50:06.839295 DELETE /api/auth/users auth=Bearer <redacted> body={}
+2026-05-26T01:50:08.913784 PATCH /api/inventory/1 auth=Bearer <redacted> body={}
+2026-05-26T04:39:29.005219 GET / auth= body=
+2026-05-26T04:39:29.015729 GET /static/style.css auth= body=
+2026-05-26T04:39:29.017730 GET /static/app.js auth= body=

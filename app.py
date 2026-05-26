@@ -78,11 +78,13 @@ if __name__ == "__main__":
     # leaks tracebacks to clients regardless of the V9 fix above.
     debug = os.environ.get("INVTRACKER_DEBUG", "").lower() in ("1", "true", "yes")
 
-    # FIX-V11: encourage TLS for any non-loopback deployment. Setting
-    # INVTRACKER_SSL=adhoc starts Flask with a self-signed certificate for
-    # local HTTPS testing. Production deployments should terminate TLS in a
-    # reverse proxy (nginx/Caddy/etc.) with a real certificate.
-    ssl_context = "adhoc" if os.environ.get("INVTRACKER_SSL") == "adhoc" else None
+    # HTTPS is on by default using a self-signed adhoc certificate.
+    # Set INVTRACKER_NO_TLS=1 only when TLS is terminated upstream
+    # (e.g. nginx/Caddy reverse proxy with a real certificate).
+    no_tls = os.environ.get("INVTRACKER_NO_TLS", "").lower() in ("1", "true", "yes")
+    ssl_context = None if no_tls else "adhoc"
 
     logging.basicConfig(level=logging.INFO)
+    scheme = "http" if no_tls else "https"
+    print(f"[invtracker] Serving on {scheme}://127.0.0.1:5000")
     app.run(host="127.0.0.1", port=5000, debug=debug, ssl_context=ssl_context)

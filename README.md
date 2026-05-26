@@ -27,8 +27,9 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The server starts on `http://localhost:5000`. The SQLite database is
-auto-created at `data/inventory.db` on first run.
+The server starts on `https://localhost:5000` using a self-signed certificate.
+Your browser will show a certificate warning — accept it to proceed.
+The SQLite database is auto-created at `data/inventory.db` on first run.
 
 ## Credentials
 
@@ -72,16 +73,16 @@ python app.py
 6. **Users tab** — admin-only list of accounts (no passwords exposed).
 7. **Audit tab** — admin-only full audit log of all inventory changes.
 
-## Optional TLS
+## TLS
 
-For local HTTPS testing with a self-signed certificate:
+HTTPS is on by default using a self-signed certificate (no configuration needed).
+
+For production, terminate TLS in a reverse proxy (nginx, Caddy, etc.) with a
+real certificate and disable the built-in TLS:
 
 ```bash
-INVTRACKER_SSL=adhoc python app.py
+INVTRACKER_NO_TLS=1 python app.py
 ```
-
-Production deployments should terminate TLS in a reverse proxy (nginx, Caddy,
-etc.) with a real certificate.
 
 ## File layout
 
