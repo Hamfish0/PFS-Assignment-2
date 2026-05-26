@@ -109,7 +109,8 @@ def create_item():
     user, err = require_role("admin", "staff")
     if err:
         return err
-    data = request.get_json(silent=True) or {}
+    _raw = request.get_json(silent=True)
+    data = _raw if isinstance(_raw, dict) else {}
     try:
         quantity = int(data.get("quantity", 0) or 0)
     except (TypeError, ValueError):
@@ -156,7 +157,8 @@ def update_item(item_id):
     user, err = require_role("admin", "staff")
     if err:
         return err
-    data = request.get_json(silent=True) or {}
+    _raw = request.get_json(silent=True)
+    data = _raw if isinstance(_raw, dict) else {}
     quantity = data.get("quantity")
     if quantity is not None:
         try:

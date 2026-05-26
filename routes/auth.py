@@ -186,7 +186,8 @@ def _clear_login_failures(username: str) -> None:
 @auth_bp.post("/api/auth/login")
 def login():
     """Authenticate a user and return a JWT."""
-    data = request.get_json(silent=True) or {}
+    _raw = request.get_json(silent=True)
+    data = _raw if isinstance(_raw, dict) else {}
     username = data.get("username", "")
     password = data.get("password", "")
 
@@ -227,7 +228,8 @@ def register():
     if err:
         return err
 
-    data = request.get_json(silent=True) or {}
+    _raw = request.get_json(silent=True)
+    data = _raw if isinstance(_raw, dict) else {}
     username = (data.get("username") or "").strip()
     password = data.get("password") or ""
     role = data.get("role", "viewer")

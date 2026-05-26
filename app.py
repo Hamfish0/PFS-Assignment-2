@@ -10,6 +10,7 @@ import logging
 import os
 
 from flask import Flask, jsonify, send_from_directory
+from werkzeug.exceptions import HTTPException
 
 from database import init_db
 from routes.auth import auth_bp, log_request
@@ -42,13 +43,8 @@ def after_request(response):
 
 @app.errorhandler(Exception)
 def handle_exception(exc):
-    """FIX-V9: generic error response. Tracebacks are logged server-side only.
-
-    The previous handler echoed `str(exc)`, the exception class name and the
-    full Python traceback back to the HTTP client, leaking file paths, library
-    versions, and (for DB errors) the failing SQL. We now log the traceback
-    via `app.logger.exception` and return a non-descriptive payload.
-    """
+    if isinstance(exc, HTTPException):
+        return exc
     app.logger.exception("unhandled exception in request: %s", exc)
     return jsonify({"error": "Internal server error"}), 500
 
